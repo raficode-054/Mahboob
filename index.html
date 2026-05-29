@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bukhari English School & Institutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS STYLING --- */
+        :root {
+            --primary-color: #00966b;
+            --secondary-color: #c9b024;
+            --dark-bg: #111111;
+            --light-bg: #f9f9f9;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Utility Components */
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #b0991e;
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #007d59;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+            color: #222;
+        }
+
+        .section-subtitle {
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 85%;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: left;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        /* Quick Feature Cards */
+        .quick-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            background-color: #ddd;
+        }
+
+        .q-card {
+            background-color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .q-card:first-child {
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .q-card:last-child {
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+        .q-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .q-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .circle-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        /* Director's Message */
+        .director-section {
+            background-color: #fff;
+        }
+
+        .director-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .director-img img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .director-text p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Core Values / Initiatives Section */
+        .initiatives {
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .init-intro {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .init-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .init-card {
+            background: #fff;
+            padding: 30px 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            transition: transform 0.3s;
+        }
+
+        .init-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .init-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .init-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .init-card p {
+            font-size: 0.8rem;
+            color: #777;
+            line-height: 1.5;
+        }
+
+        /* CTA Ribbon */
+        .cta-ribbon {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+        }
+
+        .cta-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 85%;
+            margin: 0 auto;
+        }
+
+        /* About & Culture Section */
+        .about-culture {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-culture p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* Counter/Stats Section */
+        .stats-section {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            width: 85%;
+            margin: 0 auto;
+        }
+
+        .stat-item h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        /* Knowledge Fest Feature */
+        .fest-section {
+            background-color: var(--light-bg);
+        }
+
+        .fest-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .fest-img img {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .test-card {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px;
+            border-radius: 4px;
+            text-align: left;
+            position: relative;
+        }
+
+        .test-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-cover: cover;
+            border: 2px solid white;
+        }
+
+        .user-info h5 {
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .user-info span {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* News and Events */
+        .news-section {
+            background-color: #fff;
+        }
+
+        .news-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .news-row {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 25px;
+        }
+
+        .date-box {
+            text-align: center;
+            min-width: 70px;
+        }
+
+        .date-box .day {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .date-box .month {
+            font-size: 0.8rem;
+            color: #777;
+            text-transform: uppercase;
+        }
+
+        .news-detail {
+            flex: 1;
+        }
+
+        .news-detail h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #222;
+        }
+
+        .news-detail p {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .news-img img {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* Magazine Section */
+        .magazine-section {
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .mag-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: center;
+            text-align: left;
+        }
+
+        .mag-cover img {
+            width: 100%;
+            max-width: 320px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: #999;
+            padding: 60px 0 20px;
+            font-size: 0.85rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            width: 85%;
+            margin: 0 auto;
+            border-bottom: 1px solid #222;
+            padding-bottom: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            color: #999;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            width: 85%;
+            margin: 0 auto;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .director-grid, .about-culture, .fest-grid, .mag-grid {
+                grid-template-columns: 1fr;
+            }
+            .init-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .quick-cards, .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .init-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cta-container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .news-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .news-img img {
+                width: 100%;
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .init-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">BUKHARI INSTITUTIONS</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#initiatives">Initiatives</a></li>
+                <li><a href="#news">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="section-subtitle" style="color: var(--secondary-color);">Welcome to</span>
+                <h1>BUKHARI<br>ENGLISH SCHOOL</h1>
+                <a href="#about" class="btn">Explore More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="quick-cards">
+        <div class="q-card">
+            <h3>Bukhari English School</h3>
+            <p>Providing high-quality modern education embedded with stellar values.</p>
+            <a href="#" class="circle-btn"><i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="q-card">
+            <h3>All Campuses</h3>
+            <p>Explore our highly integrated systems of multi-disciplinary institutions.</p>
+            <a href="#" class="circle-btn" style="background-color: var(--secondary-color);"><i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <section class="director-section container">
+        <div class="director-grid">
+            <div class="director-img">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Director">
+            </div>
+            <div class="director-text">
+                <span class="section-subtitle">Leadership Intellect</span>
+                <h2 class="section-title">Director's Message</h2>
+                <p>Bukhari is built upon the commitment to serving humanity through structured, values-guided education. Our mission centers on shaping critical thinking skills alongside highly practical insights.</p>
+                <p>We strive to cultivate environments where student talent converges cleanly with academic rigor, shaping leaders prepared to address global socio-economic shifts confidently.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="initiatives" class="initiatives">
+        <div class="container">
+            <span class="section-subtitle">Our Operations</span>
+            <h2 class="section-title" style="text-align: center;">Meshwar-Driven Initiatives</h2>
+            <p class="init-intro">Bukhari operates a network of unique educational pillars dedicated to nurturing and empowering modern-day student populations structurally.</p>
+            
+            <div class="init-grid">
+                <div class="init-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h4>Adab</h4>
+                    <p>Focusing on character refinement, personal ethics, and moral uprightness across interactions.</p>
+                </div>
+                <div class="init-card">
+                    <i class="fa-solid fa-award"></i>
+                    <h4>Awrad</h4>
+                    <p>Developing systemic approaches toward spiritual routines and daily mindful practices.</p>
+                </div>
+                <div class="init-card">
+                    <i class="fa-solid fa-mosque"></i>
+                    <h4>Muwajaha</h4>
+                    <p>Fostering healthy discourse, community engagement, and cultural defense strategies.</p>
+                </div>
+                <div class="init-card">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                    <h4>Happy Help</h4>
+                    <p>Dedicated charity frameworks helping struggling communities structurally adjust.</p>
+                </div>
+                <div class="init-card">
+                    <i class="fa-solid fa-book-open"></i>
+                    <h4>Iqra</h4>
+                    <p>Expanding the limits of baseline literacy and critical research text availability.</p>
+                </div>
+            </div>
+
+            <a href="#" class="btn btn-primary">See All Initiatives</a>
+        </div>
+    </section>
+
+    <div class="cta-ribbon">
+        <div class="cta-container">
+            <h3>Be a part of our thriving educational community ecosystem</h3>
+            <button class="btn" style="background: white; color: var(--primary-color);">Apply Now</button>
+        </div>
+    </div>
+
+    <section id="about" class="container about-culture">
+        <div>
+            <span class="section-subtitle">Identity Matrix</span>
+            <h2 class="section-title">About Our Paradigm</h2>
+            <p>The foundation of Bukhari Institutions balances pristine traditional heritage roots side-by-side with progressive technology-driven learning criteria.</p>
+            <p>From primary schooling milestones up through highly advanced research levels, our structural methodology ensures zero disconnect between moral values and global real-world competence parameters.</p>
+            <a href="#" class="btn btn-primary">Read Narrative</a>
+        </div>
+        <div>
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80" alt="Campus Life" style="width:100%; border-radius:4px;">
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h2 class="counter" data-target="48">0</h2>
+                <p>Faculties</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="counter" data-target="2421">0</h2>
+                <p>Students</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="counter" data-target="9">0</h2>
+                <p>Institutions</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="counter" data-target="16">0</h2>
+                <p>Years Legacy</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="fest-section">
+        <div class="container fest-grid">
+            <div class="fest-img">
+                <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=600&q=80" alt="Knowledge Fest">
+            </div>
+            <div>
+                <span class="section-subtitle">Annual Highlights</span>
+                <h2 class="section-title">Bukhari Knowledge Fest</h2>
+                <p style="color:#555; line-height:1.7; margin-bottom:20px;">The Knowledge Fest highlights outstanding research developments, creative problem-solving modules, and competitive intellectual matchups designed to benchmark talent profiles accurately over yearly assessment cycles.</p>
+                <a href="#" class="btn">View Timeline</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container testimonials">
+        <span class="section-subtitle">Feedbacks</span>
+        <h2 class="section-title" style="text-align: center;">What People Say</h2>
+        
+        <div class="testimonial-grid">
+            <div class="test-card">
+                <p>"The balanced instructional module at Bukhari enabled my children to transition cleanly into highly technical corporate domains without abandoning fundamental personal ethics principles along the way."</p>
+                <div class="user-info">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Parent">
+                    <div>
+                        <h5>Shameem Rahman</h5>
+                        <span>Parent Ecosystem Member</span>
+                    </div>
+                </div>
+            </div>
+            <div class="test-card" style="background-color: var(--secondary-color);">
+                <p>"Bukhari provided me with access to pristine academic tracks and robust social impact networks. The strategic guidance format shapes deep analytical execution capabilities efficiently."</p>
+                <div class="user-info">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Alumni">
+                    <div>
+                        <h5>Asif Ali</h5>
+                        <span>Alumni - Software Specialist</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news" class="news-section container">
+        <span class="section-subtitle">Realtime Feeds</span>
+        <h2 class="section-title">News & Events</h2>
+        
+        <div class="news-container">
+            <div class="news-row">
+                <div class="date-box">
+                    <div class="day">28</div>
+                    <div class="month">May</div>
+                </div>
+                <div class="news-detail">
+                    <h4>Bukhari Women's College Convocation Ceremony</h4>
+                    <p>Celebrating academic excellence across multiple graduate disciplines with specialized honor track rollouts this term.</p>
+                </div>
+                <div class="news-img">
+                    <img src="https://images.unsplash.com/photo-1525921429624-479b6c294521?auto=format&fit=crop&w=200&q=80" alt="Event">
+                </div>
+            </div>
+            <div class="news-row">
+                <div class="date-box">
+                    <div class="day">15</div>
+                    <div class="month">May</div>
+                </div>
+                <div class="news-detail">
+                    <h4>National Science & Technology Exhibition Launch</h4>
+                    <p>Students showcase cross-functional robotic projects and machine learning configurations directly targeting sustainability issues.</p>
+                </div>
+                <div class="news-img">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=200&q=80" alt="Event">
+                </div>
+            </div>
+        </div>
+        <center><a href="#" class="btn btn-primary">See Full Feed</a></center>
+    </section>
+
+    <section class="magazine-section">
+        <div class="container mag-grid">
+            <div>
+                <span class="section-subtitle">Our Periodic Press</span>
+                <h2 class="section-title">The Message | Monthly Digest</h2>
+                <p style="color:#555; line-height: 1.7; margin-bottom: 25px;">Stay consistently briefed on scholastic achievements, deep philosophical writings, and critical community event briefs packaged neatly into our custom monthly production issue.</p>
+                <a href="#" class="btn">Download Latest Issue (PDF)</a>
+            </div>
+            <div class="mag-cover" style="text-align: right;">
+                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80" alt="Magazine Cover">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Bukhari Institutions</h4>
+                <p style="line-height: 1.6; margin-bottom: 15px;">A premier academic infrastructure dedicated toward value integration across contemporary professional standards.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Core</a></li>
+                    <li><a href="#initiatives">Initiatives Map</a></li>
+                    <li><a href="#news">Events Stream</a></li>
+                    <li><a href="#">Career Openings</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Institutions</h4>
+                <ul>
+                    <li><a href="#">Bukhari Al-Alim College</a></li>
+                    <li><a href="#">Bukhari Arts & Science</a></li>
+                    <li><a href="#">Bukhari English School</a></li>
+                    <li><a href="#">Hifzul Quran Campus</a></li>
+                </ul>
+            </div>
+            <div class="footer-col" id="contact">
+                <h4>Contact Info</h4>
+                <p style="color:#999; line-height:1.6;">
+                    Bukhari Knowledge City,<br>
+                    Calicut, Kerala, India<br><br>
+                    <strong>Phone:</strong> +91 495 2421000<br>
+                    <strong>Email:</strong> info@bukhari.co.in
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bukhari Institutions. All Rights Reserved. Managed with Precision.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling animation for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Numeric Statistics Counting Animation logic
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // Lower number equals faster animation speed
+
+        const startCounting = (counter) => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = Math.ceil(target / speed);
+
+                if (count < target) {
+                    counter.innerText = count + inc;
+                    setTimeout(updateCount, 15);
+                } else {
+                    counter.innerText = target + "+";
+                }
+            };
+            updateCount();
+        };
+
+        // Scroll Observer implementation to trigger counter when section enters view
+        const statsSection = document.querySelector('.stats-section');
+        const observerOptions = {
+            root: null,
+            threshold: 0.1 
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    counters.forEach(counter => startCounting(counter));
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(statsSection);
+    </script>
+</body>
+</html>
