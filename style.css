@@ -1,0 +1,648 @@
+/* ==========================================================================
+   1. CORE VARIABLES & RESET SETUP
+   ========================================================================== */
+:root {
+    --primary-color: #00966b;      /* Deep Teal/Green signature */
+    --secondary-color: #c9b024;    /* Gold highlight accented accent */
+    --dark-bg: #111111;           /* Deep dark charcoal black */
+    --light-bg: #f9f9f9;          /* Ultra light off-white tone */
+    --text-dark: #333333;         /* Body copy text tone */
+    --text-light: #ffffff;        /* Pure white typography elements */
+    --border-color: #eeeeee;      /* Clean hairline separator rules */
+    --transition-speed: 0.3s;     /* Uniform standard interactive ease */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    color: var(--text-dark);
+    background-color: #ffffff;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. REUSABLE UTILITIES & COMPONENTS
+   ========================================================================== */
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+    position: relative;
+}
+
+.section-subtitle {
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 2.5px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Reusable Button Blueprint */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease-in-out;
+}
+
+.btn:hover {
+    background-color: #b0991e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(201, 176, 36, 0.2);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #007d59;
+    box-shadow: 0 4px 12px rgba(0, 150, 107, 0.2);
+}
+
+/* Circular Directional Button UI */
+.circle-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all var(--transition-speed) ease;
+}
+
+.circle-btn:hover {
+    transform: scale(1.1);
+}
+
+/* ==========================================================================
+   3. HEADER & NAVIGATION LAYOUT
+   ========================================================================== */
+header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: opacity var(--transition-speed) ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.75;
+}
+
+/* ==========================================================================
+   4. HERO SELECTION & DUAL CARD INLETS
+   ========================================================================== */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
+                url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.15;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.quick-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background-color: var(--border-color);
+}
+
+.q-card {
+    background-color: #ffffff;
+    padding: 50px;
+    text-align: center;
+}
+
+.q-card:first-child { border-bottom: 5px solid var(--primary-color); }
+.q-card:last-child { border-bottom: 5px solid var(--secondary-color); }
+
+.q-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.q-card p {
+    color: #666666;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==========================================================================
+   5. DIRECTOR'S EXECUTIVE FOCUS
+   ========================================================================== */
+.director-section {
+    background-color: #ffffff;
+}
+
+.director-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.director-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    display: block;
+}
+
+.director-text p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #555555;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   6. VALUE FRAMEWORKS & INITIATIVES (5-COL GRID)
+   ========================================================================== */
+.initiatives {
+    background-color: var(--light-bg);
+}
+
+.init-intro {
+    max-width: 750px;
+    margin: -10px auto 50px;
+    color: #666666;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.init-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-bottom: 45px;
+}
+
+.init-card {
+    background: #ffffff;
+    padding: 35px 20px;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    transition: transform var(--transition-speed) cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.init-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.06);
+}
+
+.init-card i {
+    font-size: 2.3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.init-card h4 {
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.init-card p {
+    font-size: 0.85rem;
+    color: #777777;
+    line-height: 1.6;
+}
+
+/* Ribbon Accent Callout */
+.cta-ribbon {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 25px 0;
+}
+
+.cta-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.cta-container h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   7. CORE EXPERTISE & METRICS BAR (COUNTER)
+   ========================================================================== */
+.about-culture {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-culture p {
+    font-size: 1rem;
+    color: #555555;
+    line-height: 1.75;
+    margin-bottom: 22px;
+}
+
+/* Metric Stats Counter Strip */
+.stats-section {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    padding: 65px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.stat-item h2 {
+    font-size: 2.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   8. FESTIVAL DISPLAY & SOCIAL PROOFS (TESTIMONIALS)
+   ========================================================================== */
+.fest-section {
+    background-color: var(--light-bg);
+}
+
+.fest-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.fest-img img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+}
+
+/* Testimonial Component Cards */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.test-card {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 45px;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.test-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    font-style: italic;
+    opacity: 0.95;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-info img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2.5px solid var(--text-light);
+}
+
+.user-info h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1px;
+}
+
+.user-info span {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    display: block;
+}
+
+/* ==========================================================================
+   9. EDITORIAL REEDS & NEWS LOG TRACKS
+   ========================================================================== */
+.news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.news-row {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 30px;
+}
+
+.news-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.date-box {
+    text-align: center;
+    min-width: 80px;
+}
+
+.date-box .day {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.date-box .month {
+    font-size: 0.85rem;
+    color: #666666;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.news-detail {
+    flex: 1;
+}
+
+.news-detail h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #111111;
+    font-weight: 600;
+}
+
+.news-detail p {
+    font-size: 0.9rem;
+    color: #666666;
+    line-height: 1.6;
+}
+
+.news-img img {
+    width: 140px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+/* Magazine Showcase block */
+.magazine-section {
+    background-color: var(--light-bg);
+}
+
+.mag-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.mag-cover img {
+    width: 100%;
+    max-width: 340px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    display: block;
+    margin-left: auto;
+}
+
+/* ==========================================================================
+   10. INTERACTION ARCHITECTURE & FOOTER MATRIX
+   ========================================================================== */
+footer {
+    background-color: var(--dark-bg);
+    color: #999999;
+    padding: 70px 0 25px;
+    font-size: 0.85rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.9fr 0.9fr 1fr;
+    gap: 45px;
+    width: 85%;
+    margin: 0 auto;
+    border-bottom: 1px solid #222222;
+    padding-bottom: 45px;
+    margin-bottom: 25px;
+}
+
+.footer-col h4 {
+    color: var(--text-light);
+    margin-bottom: 22px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #999999;
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+.footer-col ul li a:hover {
+    color: var(--text-light);
+}
+
+.social-icons {
+    display: flex;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #888888;
+    font-size: 1.25rem;
+    transition: color var(--transition-speed) ease;
+}
+
+.social-icons a:hover {
+    color: var(--text-light);
+}
+
+.footer-bottom {
+    text-align: center;
+    width: 85%;
+    margin: 0 auto;
+    font-size: 0.8rem;
+    color: #666666;
+}
+
+/* ==========================================================================
+   11. RESPONSIVE BREAKPOINTS (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 1100px) {
+    .init-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container { padding: 60px 0; }
+    .director-grid, .about-culture, .fest-grid, .mag-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .mag-cover img { margin-left: 0; }
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.8rem; }
+    .quick-cards, .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .q-card { padding: 40px 20px; }
+    .stat-item { margin-bottom: 30px; }
+    .stat-item:last-child { margin-bottom: 0; }
+    .init-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .cta-container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .news-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .news-img img {
+        width: 100%;
+        height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 { font-size: 2.2rem; }
+    .init-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .nav-links {
+        display: none; /* Can be hooked with a JS slide menu toggle later */
+    }
+}
